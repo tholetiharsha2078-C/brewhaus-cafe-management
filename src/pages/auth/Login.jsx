@@ -127,21 +127,25 @@ export default function Login() {
         </div>
       )}
 
-      <div className="demo-creds">
-        <div className="title">Demo accounts · local seed data</div>
-        <div className="demo-row">
-          <span><strong>Owner</strong> <code>admin@brewhaus.cafe</code></span>
-          <button type="button" onClick={() => fill('admin@brewhaus.cafe', 'BrewLocal!Owner26', 'staff')}>Use</button>
+      {/* Local-only shortcuts. Never rendered in production builds, where staff
+          passwords are rotated and these seed credentials no longer apply. */}
+      {import.meta.env.DEV && (
+        <div className="demo-creds">
+          <div className="title">Demo accounts · local seed data</div>
+          <div className="demo-row">
+            <span><strong>Owner</strong> <code>admin@brewhaus.cafe</code></span>
+            <button type="button" onClick={() => fill('admin@brewhaus.cafe', 'BrewLocal!Owner26', 'staff')}>Use</button>
+          </div>
+          <div className="demo-row">
+            <span><strong>Kitchen</strong> <code>kitchen@brewhaus.cafe</code></span>
+            <button type="button" onClick={() => fill('kitchen@brewhaus.cafe', 'BrewLocal!Kitchen26', 'staff')}>Use</button>
+          </div>
+          <div className="demo-row">
+            <span><strong>Customer</strong> <code>priya@example.com</code></span>
+            <button type="button" onClick={() => fill('priya@example.com', 'BrewLocal!Customer26', 'customer')}>Use</button>
+          </div>
         </div>
-        <div className="demo-row">
-          <span><strong>Kitchen</strong> <code>kitchen@brewhaus.cafe</code></span>
-          <button type="button" onClick={() => fill('kitchen@brewhaus.cafe', 'BrewLocal!Kitchen26', 'staff')}>Use</button>
-        </div>
-        <div className="demo-row">
-          <span><strong>Customer</strong> <code>priya@example.com</code></span>
-          <button type="button" onClick={() => fill('priya@example.com', 'BrewLocal!Customer26', 'customer')}>Use</button>
-        </div>
-      </div>
+      )}
     </AuthLayout>
   );
 }

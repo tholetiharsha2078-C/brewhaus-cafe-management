@@ -71,7 +71,7 @@ npm run db:reset
 | Waiter | `waiter@brewhaus.cafe` | `BrewLocal!Waiter26` |
 | Customer | `priya@example.com` | `BrewLocal!Customer26` |
 
-These credentials exist only in a freshly seeded local database. Change them before exposing any deployment to the internet.
+These credentials exist only in a freshly seeded local database. The login page shows quick-fill buttons for them only when running the Vite dev server; production builds hide that panel entirely. Change the passwords before exposing any deployment to the internet.
 
 ## Production
 
