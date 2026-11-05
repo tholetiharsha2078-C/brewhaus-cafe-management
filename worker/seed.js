@@ -56,11 +56,14 @@ async function seedDatabase(env) {
   const today = istDateStr(now);
   const nowIso = now.toISOString();
 
-  const adminHash = await hashPassword('Admin@123');
-  const managerHash = await hashPassword('Manager@123');
-  const kitchenHash = await hashPassword('Kitchen@123');
-  const waiterHash = await hashPassword('Waiter@123');
-  const customerHash = await hashPassword('Customer@123');
+  // Local demo credentials only. These are never used in production: change every
+  // password (Admin → Settings → Staff) before exposing a deployment publicly.
+  const adminHash = await hashPassword('BrewLocal!Owner26');
+  const managerHash = await hashPassword('BrewLocal!Manager26');
+  const kitchenHash = await hashPassword('BrewLocal!Kitchen26');
+  const supervisorHash = await hashPassword('BrewLocal!Super26');
+  const waiterHash = await hashPassword('BrewLocal!Waiter26');
+  const customerHash = await hashPassword('BrewLocal!Customer26');
 
   // ---- Stations ------------------------------------------------------------
   const stations = [
@@ -78,7 +81,7 @@ async function seedDatabase(env) {
     db.prepare('INSERT INTO users (id,name,email,password_hash,role,phone,station_id,active) VALUES (?,?,?,?,?,?,?,1)').bind(1, 'Aarav Mehta', 'admin@brewhaus.cafe', adminHash, 'owner', '+91 98860 11223', null),
     db.prepare('INSERT INTO users (id,name,email,password_hash,role,phone,station_id,active) VALUES (?,?,?,?,?,?,?,1)').bind(2, 'Nisha Rao', 'nisha@brewhaus.cafe', managerHash, 'manager', '+91 98860 44556', null),
     db.prepare('INSERT INTO users (id,name,email,password_hash,role,phone,station_id,active) VALUES (?,?,?,?,?,?,?,1)').bind(3, 'Kabir Shah', 'kitchen@brewhaus.cafe', kitchenHash, 'kitchen', '+91 98860 77889', 1),
-    db.prepare('INSERT INTO users (id,name,email,password_hash,role,phone,station_id,active) VALUES (?,?,?,?,?,?,?,1)').bind(4, 'Meera Iyer', 'meera@brewhaus.cafe', kitchenHash, 'supervisor', '+91 98860 33445', 2),
+    db.prepare('INSERT INTO users (id,name,email,password_hash,role,phone,station_id,active) VALUES (?,?,?,?,?,?,?,1)').bind(4, 'Meera Iyer', 'meera@brewhaus.cafe', supervisorHash, 'supervisor', '+91 98860 33445', 2),
     db.prepare('INSERT INTO users (id,name,email,password_hash,role,phone,station_id,active) VALUES (?,?,?,?,?,?,?,1)').bind(5, 'Rohan Das', 'waiter@brewhaus.cafe', waiterHash, 'waiter', '+91 98860 66778', null)
   );
 

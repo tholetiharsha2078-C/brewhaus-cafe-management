@@ -131,15 +131,15 @@ export default function Login() {
         <div className="title">Demo accounts · local seed data</div>
         <div className="demo-row">
           <span><strong>Owner</strong> <code>admin@brewhaus.cafe</code></span>
-          <button type="button" onClick={() => fill('admin@brewhaus.cafe', 'Admin@123', 'staff')}>Use</button>
+          <button type="button" onClick={() => fill('admin@brewhaus.cafe', 'BrewLocal!Owner26', 'staff')}>Use</button>
         </div>
         <div className="demo-row">
           <span><strong>Kitchen</strong> <code>kitchen@brewhaus.cafe</code></span>
-          <button type="button" onClick={() => fill('kitchen@brewhaus.cafe', 'Kitchen@123', 'staff')}>Use</button>
+          <button type="button" onClick={() => fill('kitchen@brewhaus.cafe', 'BrewLocal!Kitchen26', 'staff')}>Use</button>
         </div>
         <div className="demo-row">
           <span><strong>Customer</strong> <code>priya@example.com</code></span>
-          <button type="button" onClick={() => fill('priya@example.com', 'Customer@123', 'customer')}>Use</button>
+          <button type="button" onClick={() => fill('priya@example.com', 'BrewLocal!Customer26', 'customer')}>Use</button>
         </div>
       </div>
     </AuthLayout>

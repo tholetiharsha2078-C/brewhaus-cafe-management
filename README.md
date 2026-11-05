@@ -61,12 +61,12 @@ npm run db:reset
 
 | Role | Email | Password |
 | --- | --- | --- |
-| Owner | `admin@brewhaus.cafe` | `Admin@123` |
-| Manager | `nisha@brewhaus.cafe` | `Manager@123` |
-| Kitchen | `kitchen@brewhaus.cafe` | `Kitchen@123` |
-| Kitchen supervisor | `meera@brewhaus.cafe` | `Kitchen@123` |
-| Waiter | `waiter@brewhaus.cafe` | `Waiter@123` |
-| Customer | `priya@example.com` | `Customer@123` |
+| Owner | `admin@brewhaus.cafe` | `BrewLocal!Owner26` |
+| Manager | `nisha@brewhaus.cafe` | `BrewLocal!Manager26` |
+| Kitchen | `kitchen@brewhaus.cafe` | `BrewLocal!Kitchen26` |
+| Kitchen supervisor | `meera@brewhaus.cafe` | `BrewLocal!Super26` |
+| Waiter | `waiter@brewhaus.cafe` | `BrewLocal!Waiter26` |
+| Customer | `priya@example.com` | `BrewLocal!Customer26` |
 
 These credentials exist only in a freshly seeded local database. Change them before exposing any deployment to the internet.
 
