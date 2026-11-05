@@ -1,7 +1,7 @@
 // Hybrid assistant: database facts first, optional Workers AI narration. AI never invents numbers.
 import { money } from './utils.js';
 
-const MODEL = '@cf/meta/llama-3.1-8b-instruct';
+const MODEL = '@cf/meta/llama-3.1-8b-instruct-fp8';
 
 function fmt(n) {
   return new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 }).format(Number(n) || 0);
