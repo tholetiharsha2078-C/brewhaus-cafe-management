@@ -15,16 +15,15 @@
     {
       "binding": "DB",
       "database_name": "brewhaus-db",
-      "database_id": "0f2b6c4e-8c1d-4f6a-9b3e-2a7d5c9e1f40",
+      "database_id": "d4d94110-2f26-417d-9457-aa24c58ed911",
       "migrations_dir": "migrations"
     }
   ],
-  "r2_buckets": [
-    {
-      "binding": "IMAGES",
-      "bucket_name": "brewhaus-images"
-    }
-  ],
+  // R2 is not enabled on this Cloudflare account yet. Once it is, run
+  // `npx wrangler r2 bucket create brewhaus-images` and uncomment this binding.
+  // "r2_buckets": [
+  //   { "binding": "IMAGES", "bucket_name": "brewhaus-images" }
+  // ],
   "durable_objects": {
     "bindings": [{ "name": "HUB", "class_name": "KitchenHub" }]
   },
@@ -32,6 +31,6 @@
   "ai": { "binding": "AI" },
   "vars": {
     "APP_NAME": "Brewhaus Coffee & Kitchen",
-    "ENVIRONMENT": "development"
+    "ENVIRONMENT": "production"
   }
 }

@@ -17,6 +17,29 @@ Three interfaces share one database and one set of server-enforced permissions:
 - **Data:** Cloudflare D1 (SQLite), R2 (images), Durable Objects + WebSockets (realtime), Workers AI with deterministic fallback
 - **Auth:** PBKDF2 password hashes, opaque session cookies stored hashed in D1, separate staff/customer sessions, RBAC enforced server-side
 
+## Live deployment
+
+The current production deployment runs on Cloudflare Workers:
+
+- **App:** https://brewhaus-cafe.tholetiharsha2078.workers.dev
+- **D1:** `brewhaus-db` (APAC region) with both migrations applied
+- **Durable Object:** `KitchenHub` for realtime kitchen events
+- **Workers AI:** bound; rule-based fallback is used whenever the model is unavailable
+
+> **Security:** the database auto-seeds demo content on the first request. Staff passwords were rotated immediately after the first deployment, so the demo staff passwords below are **local-only** and do not work in production. Never deploy without changing every staff password.
+
+**R2 is not enabled on the account yet**, so the `IMAGES` binding is currently commented out in `wrangler.jsonc`. Menu/product imagery served from `public/seed` works normally; new image uploads will return `503` until R2 is activated. To finish enabling it:
+
+```bash
+npx wrangler r2 bucket create brewhaus-images
+```
+
+Then uncomment the `r2_buckets` block in `wrangler.jsonc` and run `npx wrangler deploy` again.
+
+### Custom domain
+
+In the Cloudflare dashboard, open **Workers & Pages → brewhaus-cafe → Settings → Domains & Routes → Add custom domain**, for example `cafe.yourdomain.com`, and follow the DNS prompt. No code change is required.
+
 ## Quick start (local)
 
 ```bash
@@ -34,7 +57,7 @@ To reset local data:
 npm run db:reset
 ```
 
-### Demo accounts
+### Demo accounts (local development only)
 
 | Role | Email | Password |
 | --- | --- | --- |
@@ -45,7 +68,7 @@ npm run db:reset
 | Waiter | `waiter@brewhaus.cafe` | `Waiter@123` |
 | Customer | `priya@example.com` | `Customer@123` |
 
-Kitchen accounts land on `/kitchen`; management accounts on `/admin`; customers on the storefront. The login page also has buttons to fill demo credentials locally.
+These credentials exist only in a freshly seeded local database. Change them before exposing any deployment to the internet.
 
 ## Production
 
