@@ -1,0 +1,27 @@
+{
+  "name": "brewhaus-cafe-management",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:api": "wrangler dev --port 8787 --local",
+    "build": "vite build",
+    "start": "npm run build && wrangler dev --port 8787 --local",
+    "db:init": "wrangler d1 migrations apply brewhaus-db --local",
+    "db:reset": "rm -rf .wrangler/state/v3/d1 && npm run db:init",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "hono": "^4.13.16",
+    "lucide-react": "^1.69.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.2.1",
+    "vite": "^8.3.6",
+    "wrangler": "^4.157.0"
+  }
+}
