@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:api": "wrangler dev --port 8787 --local",
+    "dev:api": "wrangler dev --port 8787 --local --var ENVIRONMENT:development",
     "build": "vite build",
-    "start": "npm run build && wrangler dev --port 8787 --local",
+    "start": "npm run build && wrangler dev --port 8787 --local --var ENVIRONMENT:development",
     "db:init": "wrangler d1 migrations apply brewhaus-db --local",
     "db:reset": "rm -rf .wrangler/state/v3/d1 && npm run db:init",
     "deploy": "npm run build && wrangler deploy"

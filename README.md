@@ -44,10 +44,13 @@ In the Cloudflare dashboard, open **Workers & Pages → brewhaus-cafe → Settin
 
 ```bash
 npm install
+cp .dev.vars.example .dev.vars   # local dev overrides (development mode)
 npm run db:init        # apply D1 migrations locally
 npm run dev:api        # Worker on http://127.0.0.1:8787 (local D1/R2/DO)
 npm run dev            # Vite on http://127.0.0.1:5173 (proxies /api)
 ```
+
+`wrangler.jsonc` sets `ENVIRONMENT=production` for deployed Workers, which enforces same-origin checks. `.dev.vars` sets `ENVIRONMENT=development` locally so the Vite proxy on a different port is allowed. Without it, sign-in from the Vite dev server returns `403 Cross-origin request blocked.`
 
 The database seeds itself on first request with ~45 days of realistic service data, so every dashboard figure is a real database computation.
 

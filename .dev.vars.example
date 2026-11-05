@@ -1,0 +1,8 @@
+# Local-only overrides for `wrangler dev`.
+# Copy to `.dev.vars` (gitignored) before running `npm run dev:api`.
+#
+# wrangler.jsonc sets ENVIRONMENT=production for deployed Workers. Locally we
+# want development mode so the Vite dev server's proxy (localhost:5173/5174)
+# is treated as same-origin and password-reset links are shown in the API
+# response instead of being emailed.
+ENVIRONMENT=development
