@@ -64,12 +64,8 @@ npm run db:reset
 
 | Role | Email | Password |
 | --- | --- | --- |
-| Owner | `admin@brewhaus.cafe` | `BrewLocal!Owner26` |
-| Manager | `nisha@brewhaus.cafe` | `BrewLocal!Manager26` |
-| Kitchen | `kitchen@brewhaus.cafe` | `BrewLocal!Kitchen26` |
-| Kitchen supervisor | `meera@brewhaus.cafe` | `BrewLocal!Super26` |
-| Waiter | `waiter@brewhaus.cafe` | `BrewLocal!Waiter26` |
-| Customer | `priya@example.com` | `BrewLocal!Customer26` |
+| Owner | `admin@brewhaus.cafe` | `Bh!7zhpxFlA6agrl` |
+| Kitchen | `kitchen@brewhaus.cafe` | `Bh!ff7T2ue0v2lep` |
 
 These credentials exist only in a freshly seeded local database. The login page shows quick-fill buttons for them only when running the Vite dev server; production builds hide that panel entirely. Change the passwords before exposing any deployment to the internet.
 
